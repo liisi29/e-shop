@@ -6,32 +6,27 @@ const Home = () => {
     {
       id: 1,
       title: 'hats',
-      imageUrl:
-        'https://images.squarespace-cdn.com/content/v1/5841d1805016e1d55a21d349/1521226308181-3ELV1FTEGS2N0ETLZNCQ/15194455_1479052902123383_7773753667519325305_o.jpg',
+      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
     },
     {
       id: 2,
-      title: 'boys',
-      imageUrl:
-        'https://images.squarespace-cdn.com/content/v1/5841d1805016e1d55a21d349/1521226259945-EOP0NRJUTSE1FZXRB0AX/10351076_946296592065686_836521635947665585_n.jpg',
+      title: 'jackets',
+      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
     },
     {
       id: 3,
-      title: 'girls',
-      imageUrl:
-        'https://images.squarespace-cdn.com/content/v1/5841d1805016e1d55a21d349/1521226269216-BPCM2NSJ2Y3IG95EK6JI/10801624_946295882065757_38718503841641221_n.jpg',
+      title: 'sneakers',
+      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
     },
     {
       id: 4,
       title: 'womens',
-      imageUrl:
-        'https://images.squarespace-cdn.com/content/v1/5841d1805016e1d55a21d349/1521226269214-4LJXINYGI43WEFYHTHJS/11118982_1062169660478378_3833116620667344808_o.jpg',
+      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
     },
     {
       id: 5,
       title: 'mens',
-      imageUrl:
-        'https://images.squarespace-cdn.com/content/v1/5841d1805016e1d55a21d349/1521226278993-WWNYECALUNC14ORLIRZ7/12402022_1193957887299554_1655054506993857390_o.jpg',
+      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
     },
   ];
 

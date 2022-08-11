@@ -10,7 +10,15 @@ import {
   signOut,
   User,
 } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+  getFirestore,
+  doc,
+  getDoc,
+  setDoc,
+  collection,
+  query,
+  getDocs,
+} from 'firebase/firestore';
 
 // This is ok to be public
 const firebaseConfig = {
@@ -53,6 +61,19 @@ export const createUserDocumentFromAuth = async (userAuth: User) => {
     }
   }
   return userDocRef;
+};
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'collections');
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc: any, docSnapshot) => {
+    const { title, items } = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+  console.log('categoryMap', categoryMap);
+  return categoryMap;
 };
 
 export const createAuthUserWithEmailAndPassword = async (

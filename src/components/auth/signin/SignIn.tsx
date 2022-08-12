@@ -1,22 +1,23 @@
+import '../auth.scss';
+
 import { useState } from 'react';
 
+import TRANS from '../../../translations/en.json';
 import {
-  signInWithGooglePopup,
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
-} from '../../utils/firebase.utils';
-import Button from '../form/button/button.component';
-import FormInput from '../form/form-input/form-input.component';
+  signInWithGooglePopup,
+} from '../../../utils/firebase.utils';
+import Button from '../../form/button/button.component';
+import FormInput from '../../form/form-input/form-input.component';
 
-import './signin.styles.scss';
-
-const defaultFormFields = {
+const defaultFormFields: IFormValues = {
   email: '',
   password: '',
 };
 
-const SignInForm = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
+export default function SignInForm() {
+  const [formFields, setFormFields] = useState<IFormValues>(defaultFormFields);
   const { email, password } = formFields;
 
   const resetFormFields = () => {
@@ -32,22 +33,20 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const response = await signInAuthUserWithEmailAndPassword(
-        email,
-        password
-      );
-      console.log(response);
+      await signInAuthUserWithEmailAndPassword(email, password);
       resetFormFields();
     } catch (error: any) {
       switch (error.code) {
         case 'auth/wrong-password':
-          alert('incorrect password for email');
+          const incorrect = TRANS.auth.incorrectPw;
+          alert({ incorrect });
           break;
         case 'auth/user-not-found':
-          alert('no user associated with this email');
+          const noUser = TRANS.auth.noUser;
+          alert({ noUser });
           break;
         default:
-          console.log(error);
+          console.error(error);
       }
     }
   };
@@ -56,16 +55,18 @@ const SignInForm = () => {
     console.log('event', event);
     const { name, value } = event.target;
 
-    setFormFields({ ...formFields, [name]: value });
+    setFormFields((prev: IFormValues) => {
+      return { ...prev, [name]: value };
+    });
   };
 
   return (
     <div className='sign-up-container'>
-      <h2>Already have an account?</h2>
-      <span>Sign in with your email and password</span>
+      <h2>{TRANS.auth.alreadyHasAccount}</h2>
+      <span>{TRANS.auth.signinEmailAndPw}</span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          label='Email'
+          label={TRANS.auth.email}
           type='email'
           required
           onChange={handleChange}
@@ -74,7 +75,7 @@ const SignInForm = () => {
         />
 
         <FormInput
-          label='Password'
+          label={TRANS.auth.password}
           type='password'
           required
           onChange={handleChange}
@@ -83,15 +84,18 @@ const SignInForm = () => {
         />
         <div className='buttons-container'>
           <Button type='submit' buttonType='inverted'>
-            Sign In
+            {TRANS.auth.signIn}
           </Button>
-          <Button type='button' buttonType='google' onClick={signInWithGoogle}>
-            Google sign in
+          <Button buttonType='google' onClick={signInWithGoogle}>
+            {TRANS.auth.signInGoogle}
           </Button>
         </div>
       </form>
     </div>
   );
-};
+}
 
-export default SignInForm;
+interface IFormValues {
+  email: string;
+  password: string;
+}

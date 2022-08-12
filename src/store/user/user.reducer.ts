@@ -1,7 +1,6 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
-import { User } from 'firebase/auth';
 
-import { UserActionType } from './dto';
+import { CurrentUser, UserActionType } from './dto';
 
 export const initialState: IUserReducerState = {
   currentUser: null,
@@ -22,5 +21,5 @@ interface IUserReducerAction {
 }
 
 export interface IUserReducerState {
-  currentUser: User | null;
+  currentUser: CurrentUser;
 }

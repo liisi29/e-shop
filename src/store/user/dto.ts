@@ -1,3 +1,5 @@
+import { User } from '@firebase/auth';
+
 export enum UserActionType {
   CHECK_USER_SESSION = 'user/CHECK_USER_SESSION',
   EMAIL_SIGN_IN_START = 'user/EMAIL_SIGN_IN_START',
@@ -12,3 +14,5 @@ export enum UserActionType {
   SIGN_UP_START = 'user/SIGN_UP_START',
   SIGN_UP_SUCCESS = 'user/SIGN_UP_SUCCESS',
 }
+
+export type CurrentUser = User | null;

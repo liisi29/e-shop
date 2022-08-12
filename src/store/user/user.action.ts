@@ -1,9 +1,9 @@
 import { User } from 'firebase/auth';
-import { UserActionType } from './dto';
+import { CurrentUser, UserActionType } from './dto';
 
 import { createAction } from '../utils/reducers';
 
-export const setCurrentUser = (currentUser: User | null) =>
+export const setCurrentUser = (currentUser: CurrentUser) =>
   createAction(UserActionType.SetCurrentUser, currentUser);
 export const checkUserSession = () =>
   createAction(UserActionType.CHECK_USER_SESSION);

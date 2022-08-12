@@ -2,13 +2,13 @@ import './shop.scss';
 
 import { Route, Routes } from 'react-router-dom';
 
-import CategoriesPreview from '../categories-preview/categories-preview.component';
-import Category from '../category/category.component';
+import Category from '../category/Category';
+import CatPreview from '../../components/cat-preview/CatPreview';
 
 export default function Shop() {
   return (
     <Routes>
-      <Route index element={<CategoriesPreview />} />
+      <Route index element={<CatPreview />} />
       <Route path=':category' element={<Category />} />
     </Routes>
   );

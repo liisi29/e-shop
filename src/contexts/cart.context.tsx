@@ -5,12 +5,9 @@ import {
   PropsWithChildren,
   useReducer,
 } from 'react';
-import {
-  CartDisplayFunction,
-  ICartContext,
-  ICartItem,
-  ICategory,
-} from '../dto/category';
+import { ICartItem } from '../dto/category';
+import { CartDisplayFunction, ICartContext } from '../dto/context';
+import { ICategory } from '../dto/firebase';
 
 export const CartContext = createContext<ICartContext>({
   increaseItemQuantity: () => {},
@@ -64,7 +61,6 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     setCartTotal(newCartTotal);
   }, [cartItems]);
 
-  // todo! Move this logic to reducer!
   const increaseItemQuantity = (item: ICategory) => {
     dispatch({ type: 'increase', itemInFocus: item });
   };

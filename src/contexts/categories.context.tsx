@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, ProviderProps } from 'react';
+import { createContext, useState, useEffect, PropsWithChildren } from 'react';
 import { getCategoriesAndDocuments } from '../utils/firebase.utils';
 import { IRawCategoryMap } from '../dto/firebase';
 
@@ -10,9 +10,7 @@ export const CategoriesContext = createContext<IRawCategoryMap>({
   womens: [],
 });
 
-export const CategoriesProvider = ({
-  children,
-}: ProviderProps<IRawCategoryMap>) => {
+export const CategoriesProvider = ({ children }: PropsWithChildren) => {
   const [categoriesMap, setCategoriesMap] = useState<IRawCategoryMap>({
     hats: [],
     jackets: [],

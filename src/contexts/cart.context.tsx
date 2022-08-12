@@ -65,17 +65,17 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     dispatch({ type: 'increase', itemInFocus: item });
   };
 
-  const decreaseItemQuantity = (item: ICartItem) => {
+  const decreaseItemQuantity = (item: ICategory) => {
     dispatch({ type: 'decrease', itemInFocus: item });
   };
 
-  const clearItemFromCart = (item: ICartItem) => {
+  const clearItemFromCart = (item: ICategory) => {
     dispatch({ type: 'clear', itemInFocus: item });
   };
 
   const setIsCartOpenInContext: CartDisplayFunction = (isOpen) =>
     setIsCartOpen(isOpen);
-  const value = {
+  const value: ICartContext = {
     isCartOpen,
     setIsCartOpenInContext,
     increaseItemQuantity,

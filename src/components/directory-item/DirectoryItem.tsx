@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { ICategory } from '../../dto/firebase';
 
 export default function DirectoryItem({ category }: { category: ICategory }) {
-  const { imageUrl, name } = category;
+  console.log(category);
+  const { imageUrl, title } = category;
   return (
-    <Link className='directory-item-container' to={`shop/${name}`}>
+    <Link className='directory-item-container' to={`shop/${title}`}>
       <div
         className='background-image'
         style={{
@@ -15,7 +16,7 @@ export default function DirectoryItem({ category }: { category: ICategory }) {
         }}
       />
       <div className='body'>
-        <h2>{name}</h2>
+        <h2>{title}</h2>
         <p>Shop Now</p>
       </div>
     </Link>

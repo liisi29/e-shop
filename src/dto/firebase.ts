@@ -8,7 +8,7 @@ export interface IRawCategoryMap {
 export interface ICategory {
   id: number;
   imageUrl: string;
-  name: string;
+  title: string;
   price: number;
 }
 export type IRawCatMapKey = keyof IRawCategoryMap;

@@ -9,7 +9,7 @@ import TRANS from '../../translations/en.json';
 import Button from '../form/button/Button';
 
 export default function ProductCard({ product }: { product: ICategory }) {
-  const { name, price, imageUrl } = product;
+  const { title: name, price, imageUrl } = product;
   const { increaseItemQuantity: addItemToCart } =
     useContext<ICartContext>(CartContext);
 

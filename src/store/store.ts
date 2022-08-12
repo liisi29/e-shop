@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { logger } from 'redux-logger';
 
-import { rootReducer } from './root-reducer';
+import { userReducer } from './user/user.reducer';
 
 const middleWare = process.env.NODE_ENV === 'development' ? [logger] : [];
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    user: userReducer,
+  },
   middleware: middleWare,
 });
 export type RootState = ReturnType<typeof store.getState>;

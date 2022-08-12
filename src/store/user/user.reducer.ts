@@ -1,33 +1,26 @@
-import { UserData } from '../../dto/firebase';
-import { USER_ACTION_TYPE } from './dto';
+import { createAction, createReducer } from '@reduxjs/toolkit';
 
-export const USER_INITIAL_STATE = {
+import { UserData } from '../../dto/firebase';
+import { UserActionType } from './dto';
+
+export const initialState: IUserReducerState = {
   currentUser: null,
 };
-
-export const userReducer = (
-  state = USER_INITIAL_STATE,
-  action: IUserReducerAction
-) => {
-  const { type, payload } = action;
-
-  switch (type) {
-    case USER_ACTION_TYPE.SET_CURRENT_USER:
-      return { ...state, currentUser: payload };
-    default:
-      return state;
-  }
-};
-
-export interface IUserReducerAction {
-  type: USER_ACTION_TYPE;
+export const userReducer = createReducer(initialState, (builder) => {
+  // you need to ensure that you either mutate the state argument or return a new state, but not both.
+  builder.addCase(
+    createAction(UserActionType.SetCurrentUser),
+    (state: IUserReducerState, action: IUserReducerAction) => {
+      const { payload } = action;
+      state.currentUser = payload;
+    }
+  );
+});
+interface IUserReducerAction {
+  type: UserActionType;
   payload: any;
 }
 
-export interface IUserReducer {
-  state: IUserReducerState;
-  action: IUserReducerAction;
-}
 export interface IUserReducerState {
   currentUser: UserData | null;
 }

@@ -3,5 +3,11 @@
         "shop": "Shop",
         "signIn": "Sign in",
         "signOut": "Sign out"
-    }
+    },
+    "product": "Product",
+    "description": "Description",
+    "quantity": "Quantity",
+    "price": "Price",
+    "remove": "Remove",
+    "total": "Total"
 }

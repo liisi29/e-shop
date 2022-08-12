@@ -11,6 +11,7 @@
     "remove": "Remove",
     "total": "Total",
     "goToCheckout": "Go to checkout",
+    "addToCart": "Add to cart",
     "auth": {
         "alreadyHasAccount": "Already have an account?",
         "confirmPassword": "Confirm Password",

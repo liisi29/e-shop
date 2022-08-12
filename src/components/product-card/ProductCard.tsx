@@ -3,12 +3,12 @@ import './productCard.scss';
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';
-import { ICartItem } from '../../dto/category';
+import { ICartContext } from '../../dto/context';
+import { ICategory } from '../../dto/firebase';
 import TRANS from '../../translations/en.json';
 import Button from '../form/button/Button';
-import { ICartContext } from '../../dto/context';
 
-export default function ProductCard({ product }: { product: ICartItem }) {
+export default function ProductCard({ product }: { product: ICategory }) {
   const { name, price, imageUrl } = product;
   const { increaseItemQuantity: addItemToCart } =
     useContext<ICartContext>(CartContext);

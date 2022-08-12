@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ICategory } from '../../dto/firebase';
 
-import ProductCard from '../product-card/product-card.component';
+import ProductCard from '../product-card/ProductCard';
 
 import './catPreview.scss';
 

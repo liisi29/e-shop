@@ -9,7 +9,7 @@ import CartIcon from '../../components/cart-icon/CartIcon';
 import { CartContext } from '../../contexts/cart.context';
 import { UserContext } from '../../contexts/user.context';
 import TRANS from '../../translations/en.json';
-import { signOutUser } from '../../utils/firebase.utils';
+import { signOutUser } from '../../firebase/auth/signout';
 
 export default function Navigation() {
   const { currentUser } = useContext(UserContext);

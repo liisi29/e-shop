@@ -7,7 +7,7 @@ export const USER_INITIAL_STATE = {
 
 export const userReducer = (
   state = USER_INITIAL_STATE,
-  action: IUserReducer
+  action: IUserReducerAction
 ) => {
   const { type, payload } = action;
 
@@ -19,15 +19,15 @@ export const userReducer = (
   }
 };
 
-export interface IUserReducer {
+export interface IUserReducerAction {
   type: USER_ACTION_TYPE;
   payload: any;
 }
 
 export interface IUserReducer {
-  state: IUserState;
-  action: IUserReducer;
+  state: IUserReducerState;
+  action: IUserReducerAction;
 }
-export interface IUserState {
+export interface IUserReducerState {
   currentUser: UserData | null;
 }

@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, PropsWithChildren } from 'react';
-import { getCategoriesAndDocuments } from '../utils/firebase.utils';
 import { IRawCategoryMap } from '../dto/firebase';
+import { getCategoriesAndDocuments } from '../firebase/data/getCollections';
 
 export const CategoriesContext = createContext<IRawCategoryMap>({
   hats: [],
@@ -22,7 +22,6 @@ export const CategoriesProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const getCategoriesMap = async () => {
       const categoryMap: IRawCategoryMap = await getCategoriesAndDocuments();
-      console.log(categoryMap);
       setCategoriesMap(categoryMap);
     };
 

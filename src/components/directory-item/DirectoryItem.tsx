@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { ICategory } from '../../dto/firebase';
 
 export default function DirectoryItem({ category }: { category: ICategory }) {
-  console.log(category);
   const { imageUrl, title } = category;
   return (
     <Link className='directory-item-container' to={`shop/${title}`}>

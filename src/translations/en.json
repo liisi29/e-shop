@@ -22,7 +22,13 @@
         "signUp": "Sign up",
         "signinEmailAndPw": "Sign in with your email and password",
         "signInGoogle": "Sign in with google",
-        "dontHaveAccount": "Don't have an account?"
+        "dontHaveAccount": "Don't have an account?",
+        "signupSuccess": "User has signed up",
+        "signupFail": "Error! User has not been signed up",
+        "loginSuccess": "User has signed in",
+        "loginFail": "Error! User has not been signed in",
+        "logoutSuccess": "User has signed out",
+        "logoutFail": "Error! User has not been signed out"
     },
     "errors": {
         "emailInUse": "Cannot create user, email already in use",

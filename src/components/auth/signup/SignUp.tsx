@@ -1,11 +1,9 @@
 import { UserCredential } from 'firebase/auth';
 import { useState } from 'react';
+import { createAuthUserWithEmailAndPassword } from '../../../firebase/auth/signup';
+import { createUserDocumentFromAuth } from '../../../firebase/data/getUsers';
 
 import TRANS from '../../../translations/en.json';
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from '../../../utils/firebase.utils';
 import Button from '../../form/button/Button';
 import FormInput from '../../form/form-input/FormInput';
 
@@ -29,6 +27,7 @@ export default function SignUpForm() {
 
     if (password !== confirmPassword) {
       const alertTxt = TRANS.errors.pwNomatch;
+      console.error('alertTxt', alertTxt);
       alert({ alertTxt });
       return;
     }
@@ -44,6 +43,7 @@ export default function SignUpForm() {
     } catch (error: any) {
       const alertTxt = TRANS.errors.userCreationFailed;
       if (error.code === 'auth/email-already-in-use') {
+        console.error('alertTxt', alertTxt);
         alert({ alertTxt });
       } else {
         console.log(alertTxt, error);

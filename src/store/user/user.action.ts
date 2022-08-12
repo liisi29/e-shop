@@ -3,8 +3,8 @@ import { UserActionType } from './dto';
 
 import { createAction } from '../utils/reducers';
 
-export const setCurrentUser = (user: User | null) =>
-  createAction(UserActionType.SetCurrentUser, user);
+export const setCurrentUser = (currentUser: User | null) =>
+  createAction(UserActionType.SetCurrentUser, currentUser);
 export const checkUserSession = () =>
   createAction(UserActionType.CHECK_USER_SESSION);
 

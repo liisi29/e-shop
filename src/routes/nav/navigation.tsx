@@ -1,14 +1,15 @@
+import './navigation.scss';
+
 import { useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
+
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
-import { signOutUser } from '../../utils/firebase.utils';
-import { UserContext } from '../../contexts/user.context';
+import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import { CartContext } from '../../contexts/cart.context';
-import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
-
-import './navigation.scss';
+import { UserContext } from '../../contexts/user.context';
 import TRANS from '../../translations/en.json';
+import { signOutUser } from '../../utils/firebase.utils';
 
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);

@@ -12,3 +12,8 @@ export interface ICategory {
   price: number;
 }
 export type IRawCatMapKey = keyof IRawCategoryMap;
+export type UserData = {
+  createdAt: Date;
+  displayName: string;
+  email: string;
+};

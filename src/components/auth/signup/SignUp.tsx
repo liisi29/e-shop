@@ -3,6 +3,7 @@ import '../auth.scss';
 import { UserCredential } from 'firebase/auth';
 import { useState } from 'react';
 
+import TRANS from '../../../translations/en.json';
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
@@ -10,15 +11,16 @@ import {
 import Button from '../../form/button/button.component';
 import FormInput from '../../form/form-input/form-input.component';
 
-const defaultFormFields = {
+const defaultFormFields: IDefaultFormFields = {
   displayName: '',
   email: '',
   password: '',
   confirmPassword: '',
 };
 
-const SignUpForm = () => {
-  const [formFields, setFormFields] = useState(defaultFormFields);
+export default function SignUpForm() {
+  const [formFields, setFormFields] =
+    useState<IDefaultFormFields>(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
   const resetFormFields = () => {
@@ -28,7 +30,8 @@ const SignUpForm = () => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
-      alert('passwords do not match');
+      const alertTxt = TRANS.errors.pwNomatch;
+      alert({ alertTxt });
       return;
     }
 
@@ -41,10 +44,11 @@ const SignUpForm = () => {
         resetFormFields();
       }
     } catch (error: any) {
+      const alertTxt = TRANS.errors.userCreationFailed;
       if (error.code === 'auth/email-already-in-use') {
-        alert('Cannot create user, email already in use');
+        alert({ alertTxt });
       } else {
-        console.log('user creation encountered an error', error);
+        console.log(alertTxt, error);
       }
     }
   };
@@ -57,11 +61,11 @@ const SignUpForm = () => {
 
   return (
     <div className='sign-up-container'>
-      <h2>Don't have an account?</h2>
-      <span>Sign up with your email and password</span>
+      <h2>{TRANS.auth.dontHaveAccount}</h2>
+      <span>{TRANS.auth.signinEmailAndPw}</span>
       <form onSubmit={handleSubmit}>
         <FormInput
-          label='Display Name'
+          label={TRANS.auth.displayName}
           type='text'
           required
           onChange={handleChange}
@@ -70,7 +74,7 @@ const SignUpForm = () => {
         />
 
         <FormInput
-          label='Email'
+          label={TRANS.auth.email}
           type='email'
           required
           onChange={handleChange}
@@ -79,7 +83,7 @@ const SignUpForm = () => {
         />
 
         <FormInput
-          label='Password'
+          label={TRANS.auth.password}
           type='password'
           required
           onChange={handleChange}
@@ -88,7 +92,7 @@ const SignUpForm = () => {
         />
 
         <FormInput
-          label='Confirm Password'
+          label={TRANS.auth.confirmPassword}
           type='password'
           required
           onChange={handleChange}
@@ -96,11 +100,16 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
         <Button type='submit' buttonType='inverted'>
-          Sign Up
+          {TRANS.auth.signUp}
         </Button>
       </form>
     </div>
   );
-};
+}
 
-export default SignUpForm;
+interface IDefaultFormFields {
+  displayName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}

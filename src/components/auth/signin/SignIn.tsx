@@ -38,11 +38,11 @@ export default function SignInForm() {
     } catch (error: any) {
       switch (error.code) {
         case 'auth/wrong-password':
-          const incorrect = TRANS.auth.incorrectPw;
+          const incorrect = TRANS.errors.incorrectPw;
           alert({ incorrect });
           break;
         case 'auth/user-not-found':
-          const noUser = TRANS.auth.noUser;
+          const noUser = TRANS.errors.noUser;
           alert({ noUser });
           break;
         default:

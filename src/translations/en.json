@@ -12,13 +12,23 @@
     "total": "Total",
     "goToCheckout": "Go to checkout",
     "auth": {
-        "signIn": "Sign in",
-        "signInGoogle": "Sign in with google",
-        "signinEmailAndPw": "Sign in with your email and password",
         "alreadyHasAccount": "Already have an account?",
+        "confirmPassword": "Confirm Password",
+        "displayName": "Display Name",
         "email": "Email",
         "password": "Password",
-        "incorrectPw": "incorrect password for email",
-        "noUser": "no user associated with this email"
+        "signIn": "Sign in",
+        "signUp": "Sign up",
+        "signinEmailAndPw": "Sign in with your email and password",
+        "signInGoogle": "Sign in with google",
+        "dontHaveAccount": "Don't have an account?"
+    },
+    "errors": {
+        "emailInUse": "Cannot create user, email already in use",
+        "userCreationFailed": "User creation encountered an error",
+        "incorrectPw": "Incorrect password for email",
+        "noUser": "No user associated with this email",
+        "pwNomatch": "Passwords do not match"
+
     }
 }

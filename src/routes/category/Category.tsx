@@ -1,23 +1,24 @@
-import { useContext, useState, useEffect } from 'react';
+import './category.scss';
+
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import ProductCard from '../../components/product-card/ProductCard';
-
-import { CategoriesContext } from '../../contexts/categories.context';
-import { IRawCategoryMap, IRawCatMapKey } from '../../dto/firebase';
-
-import './category.scss';
+import { IRawCatMapKey } from '../../dto/firebase';
+import { selectCatMap } from '../../store/cat/cat.selector';
+import { CategoryMap } from '../../store/cat/dto';
 
 const Category = () => {
   const { category } = useParams();
-  const categoriesMap: IRawCategoryMap = useContext(CategoriesContext);
+  const catMap: CategoryMap = useSelector(selectCatMap);
   const [products, setProducts] = useState(
-    categoriesMap[category as IRawCatMapKey]
+    catMap ? catMap[category as IRawCatMapKey] : undefined
   );
 
   useEffect(() => {
-    setProducts(categoriesMap[category as IRawCatMapKey]);
-  }, [category, categoriesMap]);
+    setProducts(catMap ? catMap[category as IRawCatMapKey] : undefined);
+  }, [category, catMap]);
 
   return (
     <>

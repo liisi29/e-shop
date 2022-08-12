@@ -5,7 +5,8 @@ import { createAction } from '../utils/reducers';
 
 export const setCurrentUser = (currentUser: CurrentUser) =>
   createAction(UserActionType.SetCurrentUser, currentUser);
-export const checkUserSession = () =>
+
+/* export const checkUserSession = () =>
   createAction(UserActionType.CHECK_USER_SESSION);
 
 export const googleSignInStart = () =>
@@ -44,3 +45,4 @@ export const signOutSuccess = () =>
 
 export const signOutFailed = (error: any) =>
   createAction(UserActionType.SIGN_OUT_FAILED, error);
+ */

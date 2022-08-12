@@ -1,12 +1,11 @@
 import { createSelector } from 'reselect';
 
-import { IUserReducerState } from './user.reducer';
 import { RootState } from '../store';
+import { IUserReducerState } from './dto';
 
-const getUserReducerFromRoot = (state: RootState): IUserReducerState =>
-  state.user;
+const getReducerFromRoot = (state: RootState): IUserReducerState => state.user;
 
 export const selectCurrentUser = createSelector(
-  getUserReducerFromRoot,
+  getReducerFromRoot,
   (user: IUserReducerState) => user.currentUser
 );

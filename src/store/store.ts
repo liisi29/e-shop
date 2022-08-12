@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit';
 import { logger } from 'redux-logger';
 
 import { userReducer } from './user/user.reducer';
+import { catReducer } from './cat/cat.reducer';
 
 const middleWare = process.env.NODE_ENV === 'development' ? [logger] : [];
 
 const store = configureStore({
   reducer: {
     user: userReducer,
+    cat: catReducer,
   },
   middleware: middleWare,
 });

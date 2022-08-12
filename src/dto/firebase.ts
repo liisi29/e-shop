@@ -11,3 +11,4 @@ export interface ICategory {
   name: string;
   price: number;
 }
+export type IRawCatMapKey = keyof IRawCategoryMap;

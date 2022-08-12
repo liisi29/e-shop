@@ -11,7 +11,7 @@ import { UserContext } from '../../contexts/user.context';
 import TRANS from '../../translations/en.json';
 import { signOutUser } from '../../utils/firebase.utils';
 
-const Navigation = () => {
+export default function Navigation() {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
   return (
@@ -41,6 +41,4 @@ const Navigation = () => {
       <Outlet />
     </>
   );
-};
-
-export default Navigation;
+}

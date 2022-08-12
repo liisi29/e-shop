@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import './button.styles.scss';
 
 type ButtonType = 'google' | 'inverted';
@@ -7,14 +7,22 @@ const buttonTypes: { [K in ButtonType]: string } = {
   inverted: 'inverted',
 };
 
-const Button = (
-  props: PropsWithChildren & {
-    buttonType: ButtonType;
-  } & ButtonHTMLAttributes<unknown>
-) => {
-  const { children, buttonType, ...rest } = props;
+const Button = ({
+  onClick,
+  children,
+  buttonType = 'inverted',
+  type,
+}: PropsWithChildren & {
+  onClick?: any;
+  buttonType?: ButtonType;
+  type?: 'submit';
+}) => {
   return (
-    <button className={`button-container ${buttonTypes[buttonType]}`} {...rest}>
+    <button
+      className={`button-container ${buttonTypes[buttonType]}`}
+      onClick={onClick}
+      type={type}
+    >
       {children}
     </button>
   );

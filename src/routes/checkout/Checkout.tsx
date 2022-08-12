@@ -4,34 +4,34 @@ import { useContext } from 'react';
 
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 import { CartContext } from '../../contexts/cart.context';
+import { ICartContext, ICategory } from '../../dto/category';
 import TRANS from '../../translations/en.json';
+const headers = [
+  TRANS.product,
+  TRANS.description,
+  TRANS.quantity,
+  TRANS.price,
+  TRANS.remove,
+];
 
 const Checkout = () => {
-  const { cartItems, cartTotal } = useContext(CartContext);
+  const { cartItems, cartTotal } = useContext<ICartContext>(CartContext);
 
   return (
     <div className='checkout-container'>
       <div className='checkout-header'>
-        <div className='header-block'>
-          <span>{TRANS.product}</span>
-        </div>
-        <div className='header-block'>
-          <span>{TRANS.description}</span>
-        </div>
-        <div className='header-block'>
-          <span>{TRANS.quantity}</span>
-        </div>
-        <div className='header-block'>
-          <span>{TRANS.price}</span>
-        </div>
-        <div className='header-block'>
-          <span>{TRANS.remove}</span>
-        </div>
+        {headers.map((h) => (
+          <div className='header-block'>
+            <span>{h}</span>
+          </div>
+        ))}
       </div>
-      {cartItems.map((cartItem: any) => (
+      {cartItems.map((cartItem: ICategory) => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
-      <div className='total'>TOTAL: ${cartTotal}</div>
+      <div className='total'>
+        {TRANS.total}: ${cartTotal}
+      </div>
     </div>
   );
 };

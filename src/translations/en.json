@@ -9,5 +9,16 @@
     "quantity": "Quantity",
     "price": "Price",
     "remove": "Remove",
-    "total": "Total"
+    "total": "Total",
+    "goToCheckout": "Go to checkout",
+    "auth": {
+        "signIn": "Sign in",
+        "signInGoogle": "Sign in with google",
+        "signinEmailAndPw": "Sign in with your email and password",
+        "alreadyHasAccount": "Already have an account?",
+        "email": "Email",
+        "password": "Password",
+        "incorrectPw": "incorrect password for email",
+        "noUser": "no user associated with this email"
+    }
 }

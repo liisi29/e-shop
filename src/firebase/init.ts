@@ -9,8 +9,10 @@ import {
 } from 'firebase/auth';
 import firebaseConfig from './conf';
 
-// CRUD happens inside it
-const firebaseApp = initializeApp(firebaseConfig);
+export function initFireBase() {
+  // CRUD happens inside it
+  initializeApp(firebaseConfig);
+}
 
 export const onAuthStateChangedListener = (callback: NextOrObserver<User>) => {
   const auth = getAuth();

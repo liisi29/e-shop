@@ -6,7 +6,7 @@ import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from '../../../utils/firebase.utils';
-import Button from '../../form/button/button.component';
+import Button from '../../form/button/Button';
 import FormInput from '../../form/form-input/form-input.component';
 
 const defaultFormFields: IDefaultFormFields = {

@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import './button.styles.scss';
+import './styles.scss';
 
 type ButtonType = 'google' | 'inverted';
 const buttonTypes: { [K in ButtonType]: string } = {

@@ -1,5 +1,3 @@
-import '../auth.scss';
-
 import { UserCredential } from 'firebase/auth';
 import { useState } from 'react';
 

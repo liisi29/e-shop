@@ -1,5 +1,3 @@
-import '../auth.scss';
-
 import { useState } from 'react';
 
 import TRANS from '../../../translations/en.json';

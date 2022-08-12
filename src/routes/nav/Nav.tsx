@@ -1,4 +1,4 @@
-import './navigation.scss';
+import './nav.scss';
 
 import { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';

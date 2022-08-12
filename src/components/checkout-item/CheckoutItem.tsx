@@ -1,14 +1,18 @@
 import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';
+import { ICartProps } from '../../dto/cart';
 
-import './checkout-item.styles.scss';
+import './checkoutItem.scss';
 
-const CheckoutItem = ({ cartItem }) => {
+export default function CheckoutItem({ cartItem }: ICartProps) {
   const { name, imageUrl, price, quantity } = cartItem;
 
-  const { clearItemFromCart, increaseItemQuantity: addItemToCart, removeItemToCart } =
-    useContext(CartContext);
+  const {
+    clearItemFromCart,
+    increaseItemQuantity: addItemToCart,
+    decreaseItemQuantity: removeItemToCart,
+  } = useContext(CartContext);
 
   const clearItemHandler = () => clearItemFromCart(cartItem);
   const addItemHandler = () => addItemToCart(cartItem);
@@ -35,6 +39,4 @@ const CheckoutItem = ({ cartItem }) => {
       </div>
     </div>
   );
-};
-
-export default CheckoutItem;
+}

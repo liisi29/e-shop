@@ -1,5 +1,6 @@
-import { PropsWithChildren } from 'react';
 import './styles.scss';
+
+import { PropsWithChildren } from 'react';
 
 type ButtonType = 'google' | 'inverted';
 const buttonTypes: { [K in ButtonType]: string } = {
@@ -7,7 +8,7 @@ const buttonTypes: { [K in ButtonType]: string } = {
   inverted: 'inverted',
 };
 
-const Button = ({
+export default function Button({
   onClick,
   children,
   buttonType = 'inverted',
@@ -16,7 +17,7 @@ const Button = ({
   onClick?: any;
   buttonType?: ButtonType;
   type?: 'submit';
-}) => {
+}) {
   return (
     <button
       className={`button-container ${buttonTypes[buttonType]}`}
@@ -26,6 +27,4 @@ const Button = ({
       {children}
     </button>
   );
-};
-
-export default Button;
+}

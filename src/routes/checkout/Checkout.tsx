@@ -2,10 +2,12 @@ import './checkout.scss';
 
 import { useContext } from 'react';
 
-import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import CheckoutItem from '../../components/checkout-item/CheckoutItem';
 import { CartContext } from '../../contexts/cart.context';
-import { ICartContext, ICategory } from '../../dto/category';
+import { ICartItem } from '../../dto/cart';
+import { ICartContext } from '../../dto/context';
 import TRANS from '../../translations/en.json';
+
 const headers = [
   TRANS.product,
   TRANS.description,
@@ -26,7 +28,7 @@ const Checkout = () => {
           </div>
         ))}
       </div>
-      {cartItems.map((cartItem: ICategory) => (
+      {cartItems.map((cartItem: ICartItem) => (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <div className='total'>

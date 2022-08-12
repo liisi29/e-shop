@@ -5,7 +5,7 @@ import {
   PropsWithChildren,
   useReducer,
 } from 'react';
-import { ICartItem } from '../dto/category';
+import { ICartItem } from '../dto/cart';
 import { CartDisplayFunction, ICartContext } from '../dto/context';
 import { ICategory } from '../dto/firebase';
 

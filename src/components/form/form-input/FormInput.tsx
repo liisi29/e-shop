@@ -1,6 +1,6 @@
-import './form-input.styles.scss';
+import './formInput.scss';
 
-const FormInput = (props: any & { label: string }) => {
+export default function FormInput(props: any & { label: string }) {
   const { label, ...rest } = props;
   return (
     <div className='group'>
@@ -15,6 +15,4 @@ const FormInput = (props: any & { label: string }) => {
       )}
     </div>
   );
-};
-
-export default FormInput;
+}

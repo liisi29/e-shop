@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import CartDropdown from '../../components/cart-dropdown/CartDropdown';
-import CartIcon from '../../components/cart-icon/cart-icon.component';
+import CartIcon from '../../components/cart-icon/CartIcon';
 import { CartContext } from '../../contexts/cart.context';
 import { UserContext } from '../../contexts/user.context';
 import TRANS from '../../translations/en.json';

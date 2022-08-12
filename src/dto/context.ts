@@ -1,4 +1,4 @@
-import { ICartItem } from './category';
+import { ICartItem } from './cart';
 import { ICategory } from './firebase';
 
 export interface ICartContext {

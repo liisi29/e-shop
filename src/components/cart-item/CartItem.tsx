@@ -1,6 +1,7 @@
-import './cart-item.styles.scss';
+import { ICartItem, ICartProps } from '../../dto/cart';
+import './cartItem.scss';
 
-const CartItem = ({ cartItem }) => {
+export default function CartItem({ cartItem }: ICartProps) {
   const { name, imageUrl, price, quantity } = cartItem;
   return (
     <div className='cart-item-container'>
@@ -13,6 +14,4 @@ const CartItem = ({ cartItem }) => {
       </div>
     </div>
   );
-};
-
-export default CartItem;
+}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ICategory } from '../../dto/firebase';
+import { ICategory, ICategoryItem } from '../../dto/firebase';
 
 import ProductCard from '../product-card/ProductCard';
 
@@ -26,5 +26,5 @@ export default function CatPreview({ title, products }: ICatPreviewProps) {
 
 export interface ICatPreviewProps {
   title: string;
-  products: ICategory[];
+  products: ICategoryItem[];
 }

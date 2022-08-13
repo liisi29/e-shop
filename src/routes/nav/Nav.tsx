@@ -15,7 +15,6 @@ import TRANS from '../../translations/en.json';
 
 export default function Navigation() {
   const currentUser: CurrentUser = useSelector(selectCurrentUser);
-  console.log('currentUser', currentUser);
   const { isCartOpen } = useContext(CartContext);
   return (
     <>

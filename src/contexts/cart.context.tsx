@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { ICartItem } from '../dto/cart';
 import { CartDisplayFunction, ICartContext } from '../dto/context';
-import { ICategory } from '../dto/firebase';
+import { ICategoryItem } from '../dto/firebase';
 
 export const CartContext = createContext<ICartContext>({
   increaseItemQuantity: () => {},
@@ -24,7 +24,7 @@ function reducer(
   cartItems: ICartItem[],
   action: {
     type: 'increase' | 'decrease' | 'clear';
-    itemInFocus: ICategory;
+    itemInFocus: ICategoryItem;
   }
 ) {
   switch (action.type) {
@@ -61,15 +61,15 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
     setCartTotal(newCartTotal);
   }, [cartItems]);
 
-  const increaseItemQuantity = (item: ICategory) => {
+  const increaseItemQuantity = (item: ICategoryItem) => {
     dispatch({ type: 'increase', itemInFocus: item });
   };
 
-  const decreaseItemQuantity = (item: ICategory) => {
+  const decreaseItemQuantity = (item: ICategoryItem) => {
     dispatch({ type: 'decrease', itemInFocus: item });
   };
 
-  const clearItemFromCart = (item: ICategory) => {
+  const clearItemFromCart = (item: ICategoryItem) => {
     dispatch({ type: 'clear', itemInFocus: item });
   };
 
@@ -89,7 +89,10 @@ export const CartProvider = ({ children }: PropsWithChildren) => {
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
-function increaseItemInCart(cartItems: ICartItem[], productToAdd: ICategory) {
+function increaseItemInCart(
+  cartItems: ICartItem[],
+  productToAdd: ICategoryItem
+) {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );
@@ -107,7 +110,7 @@ function increaseItemInCart(cartItems: ICartItem[], productToAdd: ICategory) {
 
 function decreaseItemInCart(
   cartItems: ICartItem[],
-  cartItemToRemove: ICategory
+  cartItemToRemove: ICategoryItem
 ) {
   // find the cart item to remove
   const existingCartItem = cartItems.find(
@@ -129,7 +132,7 @@ function decreaseItemInCart(
 
 function deleteItemFromCart(
   cartItems: ICartItem[],
-  cartItemToClear: ICategory
+  cartItemToClear: ICategoryItem
 ) {
   return cartItems.filter((cartItem) => cartItem.id !== cartItemToClear.id);
 }

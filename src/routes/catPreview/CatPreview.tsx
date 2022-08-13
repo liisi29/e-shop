@@ -11,9 +11,11 @@ export default function CategoriesPreview() {
   return (
     <>
       {cats &&
-        Object.keys(cats).map((title: string) => {
-          const products: ICategory[] = cats[title as IRawCatMapKey];
-          return <CatPreview key={title} title={title} products={products} />;
+        Object.keys(cats).map((objKey: string) => {
+          const cat: ICategory = cats[objKey as IRawCatMapKey];
+          return (
+            <CatPreview key={cat.id} title={cat.title} products={cat.items} />
+          );
         })}
     </>
   );

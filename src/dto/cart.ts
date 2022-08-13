@@ -1,6 +1,6 @@
-import { ICategory } from './firebase';
+import { ICategoryItem } from './firebase';
 
-export interface ICartItem extends ICategory {
+export interface ICartItem extends ICategoryItem {
   quantity: number;
 }
 

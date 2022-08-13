@@ -1,12 +1,35 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { IRawCategoryMap } from './dto/firebase';
+import { getCategoriesAndDocuments } from './firebase/data/getCollections';
 
+import { createUserDocumentFromAuth } from './firebase/data/getUsers';
+import { onAuthStateChangedListener } from './firebase/init';
 import Authentication from './routes/auth/Auth';
 import Checkout from './routes/checkout/Checkout';
 import Home from './routes/home/Home';
 import Navigation from './routes/nav/Nav';
 import Shop from './routes/shop/Shop';
+import { CurrentUser } from './store/user/dto';
+import { setCurrentUser } from './store/user/user.action';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChangedListener((user: CurrentUser) => {
+      if (user) {
+        createUserDocumentFromAuth(user);
+      }
+
+      // setCurrentUser creates an action
+      // dispatch sends this action to reducer
+      dispatch(setCurrentUser(user));
+    });
+
+    return unsubscribe;
+  }, []);
+
   return (
     <Routes>
       <Route path='/' element={<Navigation />}>

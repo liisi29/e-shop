@@ -1,5 +1,5 @@
 import { ICartItem } from './cart';
-import { ICategory } from './firebase';
+import { ICategoryItem } from './firebase';
 
 export interface ICartContext {
   increaseItemQuantity: CartItemFunction;
@@ -11,5 +11,5 @@ export interface ICartContext {
   decreaseItemQuantity: CartItemFunction;
   setIsCartOpenInContext: CartDisplayFunction;
 }
-export type CartItemFunction = (item: ICategory) => void;
+export type CartItemFunction = (item: ICategoryItem) => void;
 export type CartDisplayFunction = (isOpen: boolean) => void;

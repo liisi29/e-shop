@@ -1,11 +1,8 @@
 import { useState } from 'react';
+import { signInAuthUserWithEmailAndPassword } from '../../../firebase/auth/signinEmail';
+import { createUserDocumentFromAuth } from '../../../firebase/data/getUsers';
 
 import TRANS from '../../../translations/en.json';
-import {
-  createUserDocumentFromAuth,
-  signInAuthUserWithEmailAndPassword,
-  signInWithGooglePopup,
-} from '../../../utils/firebase.utils';
 import Button from '../../form/button/Button';
 import FormInput from '../../form/form-input/FormInput';
 
@@ -37,11 +34,13 @@ export default function SignInForm() {
       switch (error.code) {
         case 'auth/wrong-password':
           const incorrect = TRANS.errors.incorrectPw;
-          alert({ incorrect });
+          console.error('incorrect', `${incorrect}`);
+          alert(`${incorrect}`);
           break;
         case 'auth/user-not-found':
           const noUser = TRANS.errors.noUser;
-          alert({ noUser });
+          console.error('noUser', `${noUser}`);
+          alert(`${noUser}`);
           break;
         default:
           console.error(error);
@@ -50,7 +49,6 @@ export default function SignInForm() {
   };
 
   const handleChange = (event: any) => {
-    console.log('event', event);
     const { name, value } = event.target;
 
     setFormFields((prev: IFormValues) => {
@@ -96,4 +94,7 @@ export default function SignInForm() {
 interface IFormValues {
   email: string;
   password: string;
+}
+function signInWithGooglePopup(): { user: any } | PromiseLike<{ user: any }> {
+  throw new Error('Function not implemented.');
 }

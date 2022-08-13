@@ -1,8 +1,8 @@
-import { ICartItem, ICartProps } from '../../dto/cart';
+import { ICartProps } from '../../dto/cart';
 import './cartItem.scss';
 
 export default function CartItem({ cartItem }: ICartProps) {
-  const { title: name, imageUrl, price, quantity } = cartItem;
+  const { name, imageUrl, price, quantity } = cartItem;
   return (
     <div className='cart-item-container'>
       <img src={imageUrl} alt={`${name}`} />

@@ -4,12 +4,12 @@ import { useContext } from 'react';
 
 import { CartContext } from '../../contexts/cart.context';
 import { ICartContext } from '../../dto/context';
-import { ICategory } from '../../dto/firebase';
+import { ICategoryItem } from '../../dto/firebase';
 import TRANS from '../../translations/en.json';
 import Button from '../form/button/Button';
 
-export default function ProductCard({ product }: { product: ICategory }) {
-  const { title: name, price, imageUrl } = product;
+export default function ProductCard({ product }: { product: ICategoryItem }) {
+  const { name, price, imageUrl } = product;
   const { increaseItemQuantity: addItemToCart } =
     useContext<ICartContext>(CartContext);
 

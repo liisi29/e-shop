@@ -1,18 +1,22 @@
-import { useContext } from 'react';
+import { useSelector } from 'react-redux';
 
 import CatPreview from '../../components/cat-preview/CatPreview';
-import { CategoriesContext } from '../../contexts/categories.context';
-import { ICategory, IRawCategoryMap, IRawCatMapKey } from '../../dto/firebase';
+import { ICategory, IRawCatMapKey } from '../../dto/firebase';
+import { selectCatMap } from '../../store/cat/cat.selector';
+import { CategoryMap } from '../../store/cat/dto';
 
 export default function CategoriesPreview() {
-  const cats: IRawCategoryMap = useContext<IRawCategoryMap>(CategoriesContext);
+  const cats: CategoryMap = useSelector(selectCatMap);
 
   return (
     <>
-      {Object.keys(cats).map((title: string) => {
-        const products: ICategory[] = cats[title as IRawCatMapKey];
-        return <CatPreview key={title} title={title} products={products} />;
-      })}
+      {cats &&
+        Object.keys(cats).map((objKey: string) => {
+          const cat: ICategory = cats[objKey as IRawCatMapKey];
+          return (
+            <CatPreview key={cat.id} title={cat.title} products={cat.items} />
+          );
+        })}
     </>
   );
 }

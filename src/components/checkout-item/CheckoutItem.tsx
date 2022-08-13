@@ -6,7 +6,7 @@ import { ICartProps } from '../../dto/cart';
 import './checkoutItem.scss';
 
 export default function CheckoutItem({ cartItem }: ICartProps) {
-  const { title: name, imageUrl, price, quantity } = cartItem;
+  const { name, imageUrl, price, quantity } = cartItem;
 
   const {
     clearItemFromCart,

@@ -13,7 +13,6 @@ import Navigation from './routes/nav/Nav';
 import Shop from './routes/shop/Shop';
 import { CurrentUser } from './store/user/dto';
 import { setCurrentUser } from './store/user/user.action';
-import { setCategoriesMap } from './store/cat/cat.action';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -29,15 +28,6 @@ const App = () => {
     });
 
     return unsubscribe;
-  }, []);
-
-  useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap: IRawCategoryMap = await getCategoriesAndDocuments();
-      dispatch(setCategoriesMap(categoryMap));
-    };
-
-    getCategoriesMap();
   }, []);
 
   return (

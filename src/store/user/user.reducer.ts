@@ -1,5 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
-import { ActionWithPayload, IActionWithPayload } from '../utils/reducers';
+import { ActionWithPayload, IActionWithPayload } from '../utils/createAction';
 
 import { CurrentUser, IUserReducerState, UserActionType } from './dto';
 

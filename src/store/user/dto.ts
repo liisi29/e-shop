@@ -1,7 +1,7 @@
 import { User } from '@firebase/auth';
 
 export enum UserActionType {
-  SetCurrentUser = '0',
+  SetCurrentUser = 'user/SetCurrentUser',
 }
 
 export interface IUserReducerState {

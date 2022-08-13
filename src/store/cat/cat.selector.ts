@@ -7,5 +7,5 @@ const getReducerFromRoot = (state: RootState): ICatReducerState => state.cat;
 
 export const selectCatMap = createSelector(
   getReducerFromRoot,
-  (user: ICatReducerState) => user.categoryMap
+  (cat: ICatReducerState) => cat.categoryMap
 );

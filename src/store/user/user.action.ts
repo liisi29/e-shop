@@ -1,7 +1,7 @@
 import { User } from 'firebase/auth';
 import { CurrentUser, UserActionType } from './dto';
 
-import { createAction } from '../utils/reducers';
+import { createAction } from '../utils/createAction';
 
 export const setCurrentUser = (currentUser: CurrentUser) =>
   createAction(UserActionType.SetCurrentUser, currentUser);
